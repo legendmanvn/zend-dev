@@ -1,0 +1,87 @@
+<?php
+    $this->grid = $this->gridManager->getGrid();
+    $this->columns = $this->grid->getColumns();
+    $this->data = $this->gridManager->getData();
+    $this->rawData = $this->gridManager->getRawData();
+    $this->paginator = $this->grid->getPaginator();
+    $this->filtersForm = $this->gridManager->getFiltersForm();
+?>
+
+<?php $this->headScript()->appendFile('/js/at-datagrid/datagrid.js') ?>
+<?php $this->headLink()->appendStylesheet('/css/at-datagrid/datagrid.css') ?>
+
+<?php if ($this->customCss): ?>
+    <?php foreach ($this->customCss as $file): ?>
+        <?php $this->headLink()->appendStylesheet($file) ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<? if ($this->customJs): ?>
+    <?php foreach ($this->customJs as $file): ?>
+        <?php $this->headScript()->appendFile($file) ?>
+    <?php endforeach; ?>
+<? endif; ?>
+
+<?= $this->render('at-datagrid/grid/toolbar.phtml'); ?>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <?= $this->render('at-datagrid/grid/toolbar-display.phtml'); ?>
+
+        <hr>
+
+        <div class="at-grid table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="at-datagrid-check-all">
+                        </th>
+                        <?php foreach ($this->grid as $column) : ?>
+                            <?php if ($column->isVisible()): ?>
+                                <th id="col-<?= $column->getName() ?>">
+                                    <?php if ($column->isSortable()): ?>
+                                        <?php if ($this->grid->getOrderColumn() == $column->getName()): ?>
+                                            <a class="sortable active" href="<?= $this->atBaseQueryParams(['page' => 1, 'order' => $column->getName() . '~' . $this->grid->getRevertOrderDirection()]) ?>">
+                                                <span><?= $column->getLabel() ?></span>
+                                                <span class="fa fa-sort-amount-<?php if ($this->grid->getOrderDirection() == 'asc'): ?>asc<?php elseif($this->grid->getOrderDirection() == 'desc'): ?>desc<?php endif; ?>"></span>
+                                            </a>
+                                        <?php else: ?>
+                                            <a class="sortable" href="<?= $this->atBaseQueryParams(['page' => 1, 'order' => $column->getName() . '~asc']) ?>">
+                                                <?= $column->getLabel() ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <?= $column->getLabel() ?>
+                                    <?php endif; ?>
+                                </th>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <th style="width: <?= (count($this->gridManager->getActions())+1)*28 ?>px;"></th>
+                    </tr>
+                </thead>
+                <tbody id="selections">
+
+                    <?= $this->render('at-datagrid/grid/filters') ?>
+
+                    <?php if (count($this->data)): ?>
+                        <?= $this->render('at-datagrid/grid/rows') ?>
+                    <?php endif ?>
+
+                </tbody>
+            </table>
+            <?php if (!count($this->data)): ?>
+                <div><?= $this->translate("No items found") ?></div>
+            <?php endif ?>
+        </div>
+
+        <?php if (count($this->data)): ?>
+            <?= $this->render('at-datagrid/grid/group-actions') ?>
+        <?php endif; ?>
+
+        <hr>
+
+        <div class="pull-right"><?= $this->paginationControl($this->paginator, null, 'at-datagrid/grid/pagination-control'); ?></div>
+    </div>
+</div>

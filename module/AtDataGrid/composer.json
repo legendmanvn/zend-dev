@@ -1,0 +1,31 @@
+{
+    "name": "atukai/at-datagrid",
+    "description": "A missing data grid ZF2 module",
+    "type": "library",
+    "keywords": [
+        "grid", "datagrid", "AtDataGrid", "atukai", "at", "zf2"
+    ],
+    "homepage": "https://github.com/atukai/AtDataGrid",
+    "authors": [
+        {
+            "name": "Alexander Tukai",
+            "email": "atukai@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zend-mvc": "^2.0",
+        "zendframework/zend-paginator": "^2.0",
+        "zendframework/zend-form": "^2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "AtDataGrid\\": "src/",
+            "AtDataGridTest": "test/"
+        },
+
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}

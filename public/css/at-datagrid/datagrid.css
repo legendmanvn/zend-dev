@@ -1,0 +1,105 @@
+/* Grid */
+.at-grid table {width:100%;}
+.at-grid table label {font-size: 1em; width: 50px;}
+.at-grid table .checkbox {padding: 0; width: 36px; text-align: center;}
+.at-grid table th {text-transform: uppercase;}
+.at-grid table th, .at-grid table td {padding: 3px 6px; vertical-align: middle !important; }
+.at-grid table th input[type="checkbox"], .at-grid table td input[type="checkbox"] {margin-top: -2px;}
+.at-grid table th a {color: #2D444F; text-decoration: none;}
+.at-grid table th a:hover {text-decoration: underline;}
+.at-grid table th.ordered {background-color: #FFFAD2;}
+
+/* Grid filters */
+.at-grid tr.filters {background-color: #E3EFF1 !important; font-size: 0.9em;}
+.at-grid tr.filters td div {vertical-align: top; white-space: nowrap;}
+.at-grid tr.filters td input, .at-grid tr.filters td select {width: 100%; height: 24px; font-size: 12px;}
+.at-grid tr.filters td div {clear: both;}
+
+/* List options */
+.show-items-list {margin-left: 0; margin-bottom: 0; padding-left: 0;}
+.show-items-list li {float: left; list-style: none; margin: 0 4px;}
+.show-items-list li:first-child {margin-left: 0;}
+
+/* Sorting */
+.sortable {display: table}
+.sortable.active {color: #DD4B39;}
+.sortable.active span {display: table-cell;}
+.sortable.active i {padding: 4px 6% 0 0;}
+
+/* Group actions */
+.at-grid-group-actions {}
+
+/* Forms */
+
+/* Navs*/
+.nav-item-actions {
+    border-right: 1px solid #eee;
+}
+
+.nav-item-actions>li>a, .nav-item-actions>li>span {
+    padding: 8px 10px;
+}
+
+.nav-item-actions>li>span {
+    position: relative;
+    display: block;
+}
+
+.tab-content {
+    padding-top: 30px;
+}
+
+/* Item */
+.item-info {margin-bottom: 10px; padding-bottom: 10px;}
+.item-info .back {font-size: 11px;}
+.item-info .back a {text-decoration: none;}
+.item-info .info {font-size: 14px;}
+
+/* Pager */
+.b-pager {
+    margin: 0;
+}
+
+.b-pager table {
+    margin-bottom: 0;
+    border: none;
+}
+
+.b-pager td {
+    text-align:center;
+    vertical-align:middle;
+    padding:0 4px;
+}
+
+.b-pager .prev, .b-pager .next {}
+
+.b-pager .page { padding:0 4px; }
+.b-pager .page ul { text-align:center; margin: 0; padding: 0;}
+.b-pager .page li {
+    display:inline;
+    padding:0 4px;
+    text-align:center;
+}
+
+.b-pager .page .active {
+    position:relative;
+    padding:0 5px;
+    color:#fff;
+    background: #999;
+    border-radius: 4px;
+}
+
+.b-pager .page .active i {
+    position:absolute;
+    width:1px;
+    height:1px;
+    background:#f2f2f2;
+}
+
+.b-pager .page .active .tl {left:0; top:0;}
+.b-pager .page .active .tr {right:0; top:0;}
+.b-pager .page .active .bl {left:0; bottom:0;}
+.b-pager .page .active .br {right:0; bottom:0;}
+
+/* Misc */
+.b {font-weight: bold}
